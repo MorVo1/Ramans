@@ -14,3 +14,6 @@ Tom-Z15 - GUI, MorVo1 - backend
 - If you want to open in console mode run main.py
 - Your raman will be in `out.png` file. 
 - Have fun!
+
+
+![logo](logo.png)
