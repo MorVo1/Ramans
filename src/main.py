@@ -35,8 +35,10 @@ class Raman:
         generated.save('out.png')
 
 
+raman = Raman()
+
+
 def generate_raman():
-    raman = Raman()
     raman()
 
 
