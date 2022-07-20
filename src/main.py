@@ -13,6 +13,7 @@ class Raman:
         self.shirts_path = '../images/shirts'
         self.pants_path = '../images/pants'
         self.boots_path = '../images/boots'
+        self.code = ''
 
     def __call__(self):
         base = Image.open(self.base_path)

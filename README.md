@@ -6,6 +6,8 @@ Tom-Z15 - GUI, MorVo1 - backend
 ### Ramans is a generator of pixelart little men made in python.
 #
 
+## Requirements
+If you want to use our app you'll need: tkinter and pillow
 
 ## How to use it?
 - Download our repository and `cd` to it.
