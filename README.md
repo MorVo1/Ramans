@@ -17,3 +17,7 @@ Tom-Z15 - GUI, MorVo1 - backend
 
 
 ![logo](logo.png)
+
+
+## GUI preview
+![preview](preview.png)
