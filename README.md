@@ -7,7 +7,7 @@ Tom-Z15 - GUI, MorVo1 - backend
 #
 
 ## Requirements
-If you want to use our app you'll need: tkinter and pillow
+If you want to use our app you'll need: customtkinter and pillow
 
 ## How to use it?
 - Download our repository and `cd` to it.
