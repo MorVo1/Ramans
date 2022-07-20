@@ -27,7 +27,7 @@ def show_picture():
     photo = PhotoImage(file='out.png')
 
     final_img_label = customtkinter.CTkLabel(master=frame_1, image=photo, )
-    final_img_label.place(x=600, y=150)
+    final_img_label.place(x=600, y=130)
 
 
 # Buttons
