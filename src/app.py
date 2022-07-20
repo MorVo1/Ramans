@@ -24,7 +24,7 @@ img_label = Label(root, image=img, bg='grey')
 img_label.place(x=0, y=0)
 
 final_img_label = Label(root)
-final_img_label.place(x=600, y=150, width=500, height=500)
+final_img_label.place(x=600, y=150, width=640,  height=640)
 
 
 def show_picture():
