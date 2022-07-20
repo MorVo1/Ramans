@@ -1,5 +1,4 @@
 from PIL import Image
-from PIL import ImageFilter
 from random import choice
 from os import listdir
 from os import chdir
@@ -13,7 +12,6 @@ class Raman:
         self.shirts_path = '../images/shirts'
         self.pants_path = '../images/pants'
         self.boots_path = '../images/boots'
-        self.code = ''
 
     def __call__(self):
         base = Image.open(self.base_path)
