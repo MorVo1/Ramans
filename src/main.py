@@ -28,8 +28,8 @@ class Raman:
         generated = Image.alpha_composite(base, tip)
         generated = Image.alpha_composite(generated, face)
         generated = Image.alpha_composite(generated, shirt)
-        generated = Image.alpha_composite(generated, pants)
         generated = Image.alpha_composite(generated, boots)
+        generated = Image.alpha_composite(generated, pants)
 
         generated.save('out.png')
 
