@@ -80,6 +80,9 @@ def generate_raman():
 def get_previous_code() -> str:
     return raman.code
 
+def generate_raman_by_code(code: str) -> None:
+    raman.generate_by_code()
+
 
 if __name__ == '__main__':
     generate_raman()
