@@ -1,3 +1,4 @@
+import code
 from PIL import Image
 from random import choice
 from os import listdir
@@ -12,6 +13,7 @@ class Raman:
         self.shirts_path = '../images/shirts'
         self.pants_path = '../images/pants'
         self.boots_path = '../images/boots'
+        self.code = None
 
     def __call__(self):
         base = Image.open(self.base_path)
@@ -28,10 +30,19 @@ class Raman:
         generated = Image.alpha_composite(base, tip)
         generated = Image.alpha_composite(generated, face)
         generated = Image.alpha_composite(generated, shirt)
-        generated = Image.alpha_composite(generated, boots)
         generated = Image.alpha_composite(generated, pants)
+        generated = Image.alpha_composite(generated, boots)
 
         generated.save('out.png')
+
+        code_parts = [
+            tip.filename.split('/')[3].strip(".png"),
+            face.filename.split('/')[3].strip(".png"),
+            shirt.filename.split('/')[3].strip(".png"),
+            pants.filename.split('/')[3].strip(".png"),
+            boots.filename.split('/')[3].strip(".png")
+        ]
+        self.code = ';'.join(code_parts)
 
 
 raman = Raman()
@@ -41,5 +52,10 @@ def generate_raman():
     raman()
 
 
+def get_previous_code() -> str:
+    return raman.code
+
+
 if __name__ == '__main__':
     generate_raman()
+    print(get_previous_code())
