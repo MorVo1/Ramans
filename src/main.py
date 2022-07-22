@@ -1,4 +1,3 @@
-import code
 from PIL import Image
 from random import choice
 from os import listdir
@@ -6,7 +5,7 @@ from os import chdir
 
 
 class Raman:
-    def __init__(self):
+    def __init__(self) -> None:
         self.base_path = '../images/base.png'
         self.tips_path = '../images/tips'
         self.faces_path = '../images/faces'
@@ -15,7 +14,7 @@ class Raman:
         self.boots_path = '../images/boots'
         self.code = None
 
-    def __call__(self):
+    def __call__(self) -> None:
         base = Image.open(self.base_path)
         tip = Image.open(f'../images/tips/{choice(listdir(self.tips_path))}')
         face = Image.open(
@@ -43,6 +42,32 @@ class Raman:
             boots.filename.split('/')[3].strip(".png")
         ]
         self.code = ';'.join(code_parts)
+
+    def generate_by_code(self, code: str) -> None:
+        i = 0
+        base = Image.open(self.base_path)
+        for part in code.split(';'):
+            match i:
+                case 0:
+                    tip = Image.open(f'{self.tips_path}/{part}.png')
+                case 1:
+                    face = Image.open(f'{self.faces_path}/{part}.png')
+                case 2:
+                    shirt = Image.open(f'{self.shirts_path}/{part}.png')
+                case 3:
+                    pants = Image.open(f'{self.pants_path}/{part}.png')
+                case 4:
+                    boots = Image.open(f'{self.boots_path}/{part}.png')
+                case _:
+                    print('Invalid code!')
+            i += 1
+
+        generated = Image.alpha_composite(base, tip)
+        generated = Image.alpha_composite(generated, face)
+        generated = Image.alpha_composite(generated, shirt)
+        generated = Image.alpha_composite(generated, pants)
+        generated = Image.alpha_composite(generated, boots)
+        generated.save('out.png')
 
 
 raman = Raman()
