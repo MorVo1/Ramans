@@ -81,7 +81,7 @@ def get_previous_code() -> str:
     return raman.code
 
 def generate_raman_by_code(code: str) -> None:
-    raman.generate_by_code()
+    raman.generate_by_code(code)
 
 
 if __name__ == '__main__':
