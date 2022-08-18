@@ -1,45 +1,11 @@
 from PIL import Image
-from random import choice
-from os import listdir
-from os import chdir
-
+import components
 
 class Raman:
-    def __init__(self):
-        self.base_path = '../images/base.png'
-        self.tips_path = '../images/tips'
-        self.faces_path = '../images/faces'
-        self.shirts_path = '../images/shirts'
-        self.pants_path = '../images/pants'
-        self.boots_path = '../images/boots'
-
-    def __call__(self):
-        base = Image.open(self.base_path)
-        tip = Image.open(f'../images/tips/{choice(listdir(self.tips_path))}')
-        face = Image.open(
-            f'../images/faces/{choice(listdir(self.faces_path))}')
-        shirt = Image.open(
-            f'../images/shirts/{choice(listdir(self.shirts_path))}')
-        pants = Image.open(
-            f'../images/pants/{choice(listdir(self.pants_path))}')
-        boots = Image.open(
-            f'../images/boots/{choice(listdir(self.boots_path))}')
-
-        generated = Image.alpha_composite(base, tip)
-        generated = Image.alpha_composite(generated, face)
-        generated = Image.alpha_composite(generated, shirt)
-        generated = Image.alpha_composite(generated, pants)
-        generated = Image.alpha_composite(generated, boots)
-
-        generated.save('out.png')
-
-
-raman = Raman()
-
-
-def generate_raman():
-    raman()
-
-
-if __name__ == '__main__':
-    generate_raman()
+    
+    def generate_random(self, save_path: str = "raman.png") -> None:
+        base, tip = components.BaseComponent(), components.TipsComponent()
+        generated: Image.Image = Image.alpha_composite(base.get(), tip.get())
+        for component in components.AbstractComponent.__subclasses__():
+            generated = Image.alpha_composite(generated, component().get())
+        generated.save(save_path)
