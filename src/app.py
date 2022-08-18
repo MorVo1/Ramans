@@ -10,6 +10,7 @@ customtkinter.set_appearance_mode("dark")
 # Themes: "blue" (standard), "green", "dark-blue"
 customtkinter.set_default_color_theme("dark-blue")
 
+raman = main.Raman()
 root = customtkinter.CTk()
 root.title("Ramans")
 root.geometry('900x900')
@@ -23,7 +24,7 @@ frame_1.pack(pady=20, padx=60, fill="both", expand=True)
 def show_picture():
 
     # Opening photo
-    main.generate_raman()
+    raman.generate_raman()
     photo = PhotoImage(file='out.png')
 
     final_img_label = customtkinter.CTkLabel(master=frame_1, image=photo, )
